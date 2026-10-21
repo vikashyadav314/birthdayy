@@ -1,0 +1,424 @@
+/* ============================================================
+   BIRTHDAY EXPERIENCE — GLOBAL DESIGN SYSTEM
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Nunito:wght@400;500;600;700;800;900&display=swap');
+
+/* ── Design Tokens ───────────────────────────────────────── */
+:root {
+  --pink:      #FFD6E7;
+  --lavender:  #DCD6FF;
+  --cream:     #FFF9F0;
+  --yellow:    #FFE9A8;
+  --peach:     #FFC9B9;
+  --plum:      #553B61;
+  --plum-light:#7B5C8A;
+  --accent:    #FF9EC4;
+  --accent2:   #C8A2FF;
+  --white:     #FFFFFF;
+
+  --shadow-soft: 0 4px 24px rgba(85,59,97,0.10);
+  --shadow-glow: 0 0 40px rgba(255,158,196,0.35);
+  --shadow-deep: 0 8px 40px rgba(85,59,97,0.18);
+
+  --radius-sm: 12px;
+  --radius-md: 20px;
+  --radius-lg: 32px;
+  --radius-xl: 48px;
+  --radius-pill: 999px;
+
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body:    'Nunito', 'Segoe UI', system-ui, sans-serif;
+
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-out:    cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ── Reset & Base ────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body, #root {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--plum);
+  background: var(--cream);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Scrollable screen wrapper ───────────────────────────── */
+.screen {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent) transparent;
+}
+
+.screen::-webkit-scrollbar { width: 4px; }
+.screen::-webkit-scrollbar-track { background: transparent; }
+.screen::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 4px; }
+
+/* ── Typography ──────────────────────────────────────────── */
+.font-display { font-family: var(--font-display); }
+.font-body    { font-family: var(--font-body); }
+
+/* ── Backgrounds ─────────────────────────────────────────── */
+.bg-dreamy {
+  background: radial-gradient(ellipse at 20% 20%, #FFE4F0 0%, transparent 50%),
+              radial-gradient(ellipse at 80% 80%, #E8E0FF 0%, transparent 50%),
+              radial-gradient(ellipse at 50% 50%, #FFF5E8 0%, transparent 80%),
+              linear-gradient(135deg, #FFF9F0 0%, #FDE8F5 50%, #EDE8FF 100%);
+  min-height: 100vh;
+}
+
+.bg-celebration {
+  background: radial-gradient(ellipse at 30% 10%, #FFE4F0 0%, transparent 45%),
+              radial-gradient(ellipse at 70% 90%, #E5E0FF 0%, transparent 45%),
+              radial-gradient(ellipse at 50% 50%, #FFF5E0 0%, transparent 60%),
+              linear-gradient(160deg, #FFF9F0 0%, #FFE8F4 40%, #EAE4FF 100%);
+  min-height: 100vh;
+}
+
+.bg-letter {
+  background: radial-gradient(ellipse at 60% 20%, #F0EAFF 0%, transparent 50%),
+              radial-gradient(ellipse at 20% 80%, #FFE4EF 0%, transparent 50%),
+              linear-gradient(150deg, #FFF9F0 0%, #F5EEFF 50%, #FFE9F4 100%);
+  min-height: 100vh;
+}
+
+.bg-gift {
+  background: radial-gradient(ellipse at 50% 30%, #FFE0EE 0%, transparent 55%),
+              radial-gradient(ellipse at 20% 70%, #E8E0FF 0%, transparent 50%),
+              radial-gradient(ellipse at 80% 70%, #FFE8C0 0%, transparent 50%),
+              linear-gradient(160deg, #FFF5F0 0%, #FFE4F0 40%, #EDE4FF 100%);
+  min-height: 100vh;
+}
+
+.bg-final {
+  background: radial-gradient(ellipse at 50% 0%, #FFD6E7 0%, transparent 50%),
+              radial-gradient(ellipse at 0% 100%, #DCD6FF 0%, transparent 50%),
+              radial-gradient(ellipse at 100% 50%, #FFE9A8 0%, transparent 50%),
+              linear-gradient(160deg, #FFF9F0 0%, #FFE4EF 40%, #EDE4FF 100%);
+  min-height: 100vh;
+}
+
+/* ── Glassmorphism Cards ─────────────────────────────────── */
+.glass-card {
+  background: rgba(255,255,255,0.65);
+  backdrop-filter: blur(20px) saturate(1.4);
+  -webkit-backdrop-filter: blur(20px) saturate(1.4);
+  border: 1.5px solid rgba(255,255,255,0.8);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft), inset 0 1px 0 rgba(255,255,255,0.9);
+}
+
+.glass-card-dark {
+  background: rgba(85,59,97,0.08);
+  backdrop-filter: blur(16px) saturate(1.2);
+  -webkit-backdrop-filter: blur(16px) saturate(1.2);
+  border: 1.5px solid rgba(255,255,255,0.6);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-deep);
+}
+
+/* ── Buttons ─────────────────────────────────────────────── */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 32px;
+  background: linear-gradient(135deg, var(--accent) 0%, #C98AF7 100%);
+  color: white;
+  font-family: var(--font-body);
+  font-weight: 800;
+  font-size: 1rem;
+  border: none;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(255,158,196,0.45), 0 2px 8px rgba(201,138,247,0.3);
+  transition: transform 0.15s var(--ease-spring), box-shadow 0.2s ease;
+  letter-spacing: 0.01em;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.25) 0%, transparent 60%);
+  border-radius: inherit;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 8px 30px rgba(255,158,196,0.55), 0 4px 12px rgba(201,138,247,0.4);
+}
+
+.btn-primary:active {
+  transform: translateY(0) scale(0.97);
+}
+
+.btn-primary:focus-visible {
+  outline: 3px solid var(--accent2);
+  outline-offset: 3px;
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 28px;
+  background: rgba(255,255,255,0.75);
+  color: var(--plum);
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.95rem;
+  border: 2px solid rgba(255,158,196,0.5);
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  box-shadow: var(--shadow-soft);
+  transition: transform 0.15s var(--ease-spring), box-shadow 0.2s ease, background 0.2s ease;
+  letter-spacing: 0.01em;
+}
+
+.btn-secondary:hover {
+  transform: translateY(-2px) scale(1.02);
+  background: rgba(255,255,255,0.95);
+  box-shadow: 0 6px 24px rgba(255,158,196,0.3);
+}
+
+.btn-secondary:active { transform: translateY(0) scale(0.97); }
+.btn-secondary:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+
+/* ── Decorative floating elements ────────────────────────── */
+.floating-decor {
+  position: absolute;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+}
+
+/* ── Keyframe Animations ─────────────────────────────────── */
+
+/* Float up-down */
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  33%       { transform: translateY(-12px) rotate(3deg); }
+  66%       { transform: translateY(-6px) rotate(-2deg); }
+}
+
+/* Gentle sway */
+@keyframes sway {
+  0%, 100% { transform: rotate(-4deg) scale(1); }
+  50%       { transform: rotate(4deg) scale(1.04); }
+}
+
+/* Twinkle */
+@keyframes twinkle {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.3; transform: scale(0.6); }
+}
+
+/* Drift upward (for floating hearts/stars) */
+@keyframes drift-up {
+  0%   { opacity: 0; transform: translateY(0) scale(0.5) rotate(0deg); }
+  10%  { opacity: 1; }
+  100% { opacity: 0; transform: translateY(-120px) scale(1.2) rotate(20deg); }
+}
+
+/* Pulse glow */
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(255,158,196,0.3); }
+  50%       { box-shadow: 0 0 45px rgba(255,158,196,0.7), 0 0 80px rgba(200,162,255,0.4); }
+}
+
+/* Shake */
+@keyframes shake {
+  0%, 100% { transform: translateX(0) rotate(0deg); }
+  10%       { transform: translateX(-8px) rotate(-3deg); }
+  20%       { transform: translateX(8px) rotate(3deg); }
+  30%       { transform: translateX(-6px) rotate(-2deg); }
+  40%       { transform: translateX(6px) rotate(2deg); }
+  50%       { transform: translateX(-4px) rotate(-1deg); }
+  60%       { transform: translateX(4px) rotate(1deg); }
+  70%       { transform: translateX(-2px) rotate(0deg); }
+  80%       { transform: translateX(2px) rotate(0deg); }
+}
+
+/* Wiggle bow */
+@keyframes wiggle {
+  0%, 100% { transform: rotate(0deg) scale(1); }
+  25%       { transform: rotate(-8deg) scale(1.08); }
+  75%       { transform: rotate(8deg) scale(1.08); }
+}
+
+/* Lid open */
+@keyframes lid-open {
+  0%   { transform: rotateX(0deg) translateY(0); }
+  40%  { transform: rotateX(-70deg) translateY(-10px); }
+  60%  { transform: rotateX(-80deg) translateY(-20px); }
+  100% { transform: rotateX(-95deg) translateY(-30px); }
+}
+
+/* Character jump out */
+@keyframes jump-out {
+  0%   { transform: translateY(100%) scale(0.5); opacity: 0; }
+  40%  { transform: translateY(-40px) scale(1.1); opacity: 1; }
+  60%  { transform: translateY(10px) scale(0.95); }
+  75%  { transform: translateY(-15px) scale(1.05); }
+  90%  { transform: translateY(4px) scale(0.98); }
+  100% { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+/* Character breathe */
+@keyframes breathe {
+  0%, 100% { transform: scaleY(1) scaleX(1); }
+  50%       { transform: scaleY(1.04) scaleX(0.98); }
+}
+
+/* Blink */
+@keyframes blink {
+  0%, 90%, 100% { transform: scaleY(1); }
+  95%            { transform: scaleY(0.05); }
+}
+
+/* Head tilt */
+@keyframes head-tilt {
+  0%, 100% { transform: rotate(0deg); }
+  30%       { transform: rotate(-5deg); }
+  60%       { transform: rotate(5deg); }
+}
+
+/* Wave arm */
+@keyframes wave-arm {
+  0%, 100% { transform: rotate(0deg) translateY(0); }
+  25%       { transform: rotate(-25deg) translateY(-4px); }
+  75%       { transform: rotate(15deg) translateY(-2px); }
+}
+
+/* Hug arms */
+@keyframes hug-arms {
+  0%   { transform: rotate(0deg) translateX(0); }
+  50%  { transform: rotate(-35deg) translateX(8px); }
+  100% { transform: rotate(0deg) translateX(0); }
+}
+
+/* Candle flicker */
+@keyframes flicker {
+  0%, 100% { transform: scaleX(1) scaleY(1) translateX(0); opacity: 1; }
+  20%       { transform: scaleX(0.8) scaleY(1.1) translateX(1px); opacity: 0.9; }
+  40%       { transform: scaleX(1.1) scaleY(0.9) translateX(-1px); opacity: 1; }
+  60%       { transform: scaleX(0.9) scaleY(1.15) translateX(0.5px); opacity: 0.85; }
+  80%       { transform: scaleX(1.05) scaleY(0.95) translateX(-0.5px); opacity: 0.95; }
+}
+
+/* Falling petals */
+@keyframes petal-fall {
+  0%   { transform: translateY(-20px) rotate(0deg) translateX(0); opacity: 0; }
+  10%  { opacity: 0.8; }
+  100% { transform: translateY(100vh) rotate(360deg) translateX(40px); opacity: 0; }
+}
+
+/* Envelope open */
+@keyframes envelope-open {
+  0%   { transform: rotateX(0deg); }
+  100% { transform: rotateX(-180deg); }
+}
+
+/* Screen dissolve */
+@keyframes dissolve-out {
+  0%   { opacity: 1; filter: blur(0); }
+  100% { opacity: 0; filter: blur(20px); }
+}
+
+/* Typewriter cursor */
+@keyframes cursor-blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+/* Star spin orbit */
+@keyframes orbit {
+  from { transform: rotate(0deg) translateX(60px) rotate(0deg); }
+  to   { transform: rotate(360deg) translateX(60px) rotate(-360deg); }
+}
+
+/* Confetti spin */
+@keyframes confetti-fall {
+  0%   { transform: translateY(-10px) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+}
+
+/* Magic glow pulse inside box */
+@keyframes magic-light {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50%       { opacity: 1; transform: scale(1.3); }
+}
+
+/* Balloon drift */
+@keyframes balloon-drift {
+  0%         { transform: translateY(0) rotate(-3deg); }
+  33%        { transform: translateY(-18px) rotate(3deg); }
+  66%        { transform: translateY(-8px) rotate(-2deg); }
+  100%       { transform: translateY(0) rotate(-3deg); }
+}
+
+/* Bounce in for speech bubble */
+@keyframes bounce-in {
+  0%   { transform: scale(0) translateY(20px); opacity: 0; }
+  60%  { transform: scale(1.08) translateY(-5px); opacity: 1; }
+  80%  { transform: scale(0.96) translateY(2px); }
+  100% { transform: scale(1) translateY(0); opacity: 1; }
+}
+
+/* ── Reduced Motion ──────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ── Utility classes ─────────────────────────────────────── */
+.center-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.relative { position: relative; }
+.absolute { position: absolute; }
+.overflow-hidden { overflow: hidden; }
+.pointer-none { pointer-events: none; }
+.select-none { user-select: none; }
+
+.text-plum      { color: var(--plum); }
+.text-plum-light{ color: var(--plum-light); }
+.text-accent    { color: var(--accent); }
+
+.gradient-text {
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 50%, #FF8FAB 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
